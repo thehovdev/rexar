@@ -1,0 +1,53 @@
+
+section.main {
+    display: flex;
+    align-items:center;
+
+    background-image: url('/images/homepage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+    padding: 4rem 0;
+    color: white;
+}
+
+section.main button {
+    margin: 0 5px;
+}
+
+
+section.task {
+    display: flex;
+    align-items:center;
+
+    background-image: url('/images/homepage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 4rem 0;
+}
+
+.homepage .app-name {
+    padding: 2rem 0;
+    font-size: 6rem;
+}
+
+.homepage .btn-company {
+    display: block;
+    width: 60%;
+    height: 60px;
+    font-size: 2rem;
+    padding: 1.5rem;
+    margin: 2rem auto;
+}
+
+.btn-margin {
+    margin: 0 5px 0 0;
+}
+
+.width100 {
+    width: 100% !important;
+}

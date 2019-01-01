@@ -1,0 +1,140 @@
+<% include includes/header %>
+
+<section class="task">
+    <div class="container">
+        <div class="homepage">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div class="row">
+                        <div id="root"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/babel">
+const app = document.getElementById('root');
+
+class TaskParentComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        // execute state
+        this.state = {
+            tasks : [
+                'Отрефакторить код',
+                'Исправить баги',
+                'Ответить на почту'
+            ]
+        };
+
+        this.saveBlock = this.saveBlock.bind(this);
+        this.removeBlock = this.removeBlock.bind(this);
+    }
+
+    saveBlock (i, title) {
+        console.log('saveBlock')
+
+        var tasks = this.state.tasks
+        tasks[i] = title;
+        this.setState({ tasks:tasks })
+    }
+
+    removeBlock (i) {
+        console.log('removeBlock')
+
+        var tasks = this.state.tasks
+        tasks.splice(i,1)
+        this.setState({ tasks:tasks })
+
+    }
+
+    eachTask (item, i) {
+        return ( 
+            <TaskComponent key={i} index={i} saveBlock={this.saveBlock} removeBlock={this.removeBlock}>
+                {item}
+            </TaskComponent> 
+        );
+    }
+
+    render () {
+        return <div className="task-parent">
+                    {this.state.tasks.map(this.eachTask.bind(this))}
+                </div>
+    }
+}
+
+class TaskComponent extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        // execute state
+        this.state = {edit: false};
+        // handle this
+        this.edit = this.edit.bind(this);
+        this.save = this.save.bind(this);
+        this.remove = this.remove.bind(this);
+        this.taskTitle = React.createRef();
+      }
+    
+
+    edit () {
+        console.log('edit')
+        this.setState({ edit:true })
+    }
+
+    save () {
+        console.log('save')
+        this.setState({ edit:false })
+        this.props.saveBlock(this.props.index, this.taskTitle.current.value)
+    }
+
+    remove () {
+        console.log('remove')
+        this.setState({ edit:false })
+        this.props.removeBlock(this.props.index)
+    }
+
+    show () {
+        return ( 
+            <div className="col-sm-12">
+                <div className="panel panel-primary">
+                    <div className="panel-body">
+                        <h4>{this.props.children}</h4>
+                        <button onClick={this.edit} className="btn btn-margin btn-primary">Edit</button>
+                        <button onClick={this.remove} className="btn btn-margin btn-danger">Remove</button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    showEdit () {
+        return ( 
+            <div className="col-sm-12">
+                <div className="panel panel-primary">
+                    <div className="panel-body">
+                        <textarea ref={this.taskTitle} defaultValue={this.props.children} className="width100"></textarea>
+                        <button onClick={this.save} className="btn btn-margin btn-success">Save</button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    render () {
+        if (this.state.edit) {
+            return this.showEdit();
+        }
+
+        return this.show();
+    }
+}
+
+
+ReactDOM.render( <TaskParentComponent />, app );
+
+</script>
+
+<% include includes/footer %>

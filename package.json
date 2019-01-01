@@ -1,0 +1,19 @@
+{
+  "name": "nodeproject",
+  "version": "1.0.0",
+  "description": "nodeproject for practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Afgan Khalilov",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
