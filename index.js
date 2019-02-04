@@ -7,7 +7,6 @@ var app = express();
 // устанавливаем шаблонизатор ejs
 app.set('view engine', 'ejs');
 
-
 // устанавливаем папки для отслеживания файлов через express 
 app.use(express.static('includes'));
 app.use(express.static('public'));
@@ -46,6 +45,6 @@ app.post('/team/create', function(req, res) {
 
 
 app.listen(3000, function () {
-    console.log('Example app listening on port 3000!!');
+    console.log('REX app listening on port 3000!!');
 });
 

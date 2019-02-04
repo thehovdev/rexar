@@ -4,27 +4,36 @@
   "description": "nodeproject for practice",
   "main": "index.js",
   "scripts": {
-    "watch"        : "npm-run-all --parallel watch:server watch:build",
-    "watch:build"  : "webpack --watch",
-    "watch:server" : "npx nodemon"
+    "watch": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "webpack --watch",
+    "watch:server": "npx nodemon",
+    "make:test" : "node test.js"
   },
   "author": "Afgan Khalilov",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "npm-run-all": "^4.1.5",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-addons-update": "^15.6.2",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
     "nodemon": "^1.18.6",
+    "react-devtools": "^3.5.3",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.2.0"
+    "webpack-cli": "^3.2.0",
+    "webpack-notifier": "^1.7.0"
   }
 }

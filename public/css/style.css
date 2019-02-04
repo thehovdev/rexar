@@ -1,16 +1,16 @@
 
 section.main {
     display: flex;
-    align-items:center;
+    /* align-items:center; */
 
     background-image: url('/images/homepage.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 1000px;
     
     padding: 4rem 0;
-    color: white;
+    color: black;
 }
 
 section.main button {
@@ -31,7 +31,7 @@ section.task {
 }
 
 .homepage .app-name {
-    padding: 2rem 0;
+    color: white;
     font-size: 6rem;
 }
 
@@ -50,4 +50,12 @@ section.task {
 
 .width100 {
     width: 100% !important;
+}
+
+.smargin {
+    margin:5px;
+}
+
+.btn-add-car {
+  width: 100px;
 }
