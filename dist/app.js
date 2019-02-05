@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar app = express();\nvar fs = __webpack_require__(/*! fs */ \"fs\");\n\n// устанавливаем шаблонизатор ejs\napp.set('view engine', 'ejs');\n\n// устанавливаем папки для отслеживания файлов через express \napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// для body parser чтобы принимать post запросы\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n// логика\napp.get('/', function (req, res) {\n    res.send('Index Page');\n\n    fs.readFileSync('action.txt', 'utf8', function(err, contents) {\n        console.log(contents);\n    });\n    \n\n    //create a file named mynewfile1.txt:\n    // fs.appendFile('test.txt', 'Hello test content!', function (err) {\n    //     if (err) throw err;\n    //     console.log('Saved!');\n    // });\n  \n\n\n    \n    // res.render('index');\n});\n\n// логика\napp.get('/task', function (req, res) {\n    res.render('task');\n});\n\n// app.get('/team/join', function (req, res) {\n//     res.send('Join Team');\n// });\n\n// app.post('/team/create', function(req, res) {\n//     var email = req.body.email;\n//     var password = req.body.password;\n//     var teamname = req.body.teamname;\n//     res.send('Request is successfully');\n// });\n\n\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar app = express();\n\n// устанавливаем шаблонизатор ejs\napp.set('view engine', 'ejs');\n\n// устанавливаем папки для отслеживания файлов через express \napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// для body parser чтобы принимать post запросы\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n// логика\napp.get('/', function (req, res) {   \n    res.render('index');\n});\n\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
@@ -138,17 +138,6 @@ eval("module.exports = require(\"ejs\");\n\n//# sourceURL=webpack:///external_%2
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
-
-/***/ }),
-
-/***/ "fs":
-/*!*********************!*\
-  !*** external "fs" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22fs%22?");
 
 /***/ }),
 

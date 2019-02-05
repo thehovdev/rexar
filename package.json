@@ -1,12 +1,12 @@
 {
   "name": "nodeproject",
   "version": "1.0.0",
-  "description": "nodeproject for practice",
+  "description": "REX application",
   "main": "index.js",
   "scripts": {
     "watch": "npm-run-all --parallel watch:client watch:server",
     "watch:client": "webpack --watch",
-    "watch:server": "npx nodemon ./dist/app.js",
+    "watch:server": "npx nodemon ./dist/app.js"
   },
   "author": "Afgan Khalilov",
   "license": "ISC",

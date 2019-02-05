@@ -20,23 +20,6 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-// логика
-app.get('/task', function (req, res) {
-    res.render('task');
-});
-
-// app.get('/team/join', function (req, res) {
-//     res.send('Join Team');
-// });
-
-// app.post('/team/create', function(req, res) {
-//     var email = req.body.email;
-//     var password = req.body.password;
-//     var teamname = req.body.teamname;
-//     res.send('Request is successfully');
-// });
-
-
 app.listen(3000, function () {
     console.log('REX app listening on port 3000!!');
 });
