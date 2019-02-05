@@ -4,10 +4,9 @@
   "description": "nodeproject for practice",
   "main": "index.js",
   "scripts": {
-    "watch": "npm-run-all --parallel watch:server watch:build",
-    "watch:build": "webpack --watch",
-    "watch:server": "npx nodemon",
-    "make:test" : "node test.js"
+    "watch": "npm-run-all --parallel watch:client watch:server",
+    "watch:client": "webpack --watch",
+    "watch:server": "npx nodemon ./dist/app.js",
   },
   "author": "Afgan Khalilov",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "babel-core": "^6.26.3",
     "body-parser": "^1.18.3",
+    "config": "^3.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
@@ -31,9 +31,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "nodemon": "^1.18.6",
-    "react-devtools": "^3.5.3",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0",
+    "webpack-node-externals": "^1.7.2",
     "webpack-notifier": "^1.7.0"
   }
 }

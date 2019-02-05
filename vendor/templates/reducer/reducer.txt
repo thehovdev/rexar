@@ -1,0 +1,35 @@
+import update from 'react-addons-update'; // for update state
+
+let initialState = [
+    {
+        id : 0,
+        name : 'Some Work',
+        edit : false,
+    },
+    {
+        id : 1,
+        name : 'Some Extra Work',
+        edit : false,
+    },
+]
+
+export default function (state = initialState, action) {
+
+    switch (action.type) {
+        case 'ADD_ACTION':
+            console.log('ADD_TASK');
+            return state;
+        case 'REMOVE_ACTION':
+            console.log('REMOVE_TASK');
+            return state;
+        case 'EDIT_ACTION':
+            console.log('EDIT_TASK');
+            return state;
+        case 'SAVE_ACTION':
+            console.log('SAVE_ACTION');
+            return state;
+        default :
+            return state
+    }    
+
+}

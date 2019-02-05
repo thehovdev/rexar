@@ -1,0 +1,11 @@
+import React, {Component} from 'react';
+
+class SomeList extends Component {
+    render () {
+        return <ul className="list">
+                    // some html
+                </ul>
+    }
+}
+
+export default SomeList;

@@ -1,0 +1,13 @@
+{
+    "app": {
+        "env": "development",
+        "minimize": false
+    },
+
+    "webpack" : {
+        "entry": "index.js",
+        "bundle": "app.js",
+        "clientDir": "public/js/",
+        "serverDir": "dist/"
+    }
+}
