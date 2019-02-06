@@ -47,7 +47,7 @@ class TaskList extends Component {
                             <div className="panel panel-primary">
                                 <div className="panel-body">
                                     <textarea id={'edit_task' + index} defaultValue={task.name} className="width100"></textarea>
-                                    <button onClick={() => saveTask(index)} className="btn btn-margin btn-success">Save</button>
+                                    <button onClick={() => saveTask(index)} className="btn btn-margin btn-default">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -56,12 +56,12 @@ class TaskList extends Component {
 
                 return ( 
                     <div key={index} className="col-sm-12">
-                        <div className="panel panel-primary">
+                        <div className="panel panel-default">
                             <div className="panel-body">
                                 <h4>{task.name}</h4>
-                                <button onClick={() => removeTask(task)} className="btn btn-margin btn-danger">Remove</button>
+                                <button onClick={() => removeTask(task)} className="btn btn-margin btn-default">Remove</button>
                                 
-                                <button onClick={() => editTask(index)} className="btn btn-margin btn-primary">Edit</button>
+                                <button onClick={() => editTask(index)} className="btn btn-margin btn-default">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ class TaskList extends Component {
         }
 
         <input id="new-task" type="text" defaultValue="New Task" ref={this.newTask}></input>
-        <button className="btn btn-success" onClick={() => addTask()}>Add Todo</button>
+        <button className="btn btn-info" onClick={() => addTask()}>Add Todo</button>
 
     </div>
     
@@ -78,14 +78,6 @@ class TaskList extends Component {
   }
 }
 
-// const mapDispatchToProps = function(dispatch) {
-//     return bindActionCreators({ 
-//         addTask: addTask,
-//         removeTask: removeTask,
-//         editTask: editTask,
-//         saveTask: saveTask
-//     }, dispatch);
-// }
 
 function mapDispatchToProps(dispatch) {
     return {

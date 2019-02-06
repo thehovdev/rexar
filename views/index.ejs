@@ -3,10 +3,74 @@
 <section class="main">
     <div class="container">
         <div class="homepage">
+
+            <button class="github-button">Github</button>
+
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <h1 class="app-name text-center">REX Framework</h1>
-                    <div id="root"></div>
+                <div class="col-sm-12">
+                    <img src="/images/logo.png" width="200px">
+                    <span class="app-name text-center">REX Framework</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="todo-list">
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Example Todo List</h2>
+                        <div id="root"></div>
+                    </div>
+                </div>
+
+                <div class="package-list">
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Includes</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item">React</li>
+                            <li class="list-group-item">React Router</li>
+                            <li class="list-group-item">Redux</li>
+                            <li class="list-group-item">Webpack</li>
+                            <li class="list-group-item">NodeJs</li>
+                            <li class="list-group-item">Express</li>
+                            <li class="list-group-item">EJS template engine</li>
+                            <li class="list-group-item">Node-config configuration package</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="text-center">Rexar CLI</h2>
+
+                    <table class="table">
+                    <thead>
+                      <tr>
+                        <th><h4>Command</h4></th>
+                        <th><h4>Action</h4</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><h4><b>node rexar.js make:action myaction</b></h4></td>
+                        <td><h4>create new redux action</h4></td>
+                      </tr>
+                      <tr>
+                        <td><h4><b>node rexar.js make:component mycomponent</b></h4></td>
+                        <td><h4>create new react component</h4></td>
+                      </tr>
+                      <tr>
+                        <td><h4><b>node rexar.js make:container mycontainer</b></h4></td>
+                        <td><h4>create new redux container</h4></td>
+                      </tr>
+                      <tr>
+                        <td><h4><b>node rexar.js make:reducer myreducer</b></h4></td>
+                        <td><h4>create new redux reducer</h4></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
                 </div>
             </div>
         </div>

@@ -1,9 +1,7 @@
 
 section.main {
     display: flex;
-    /* align-items:center; */
-
-    background-image: url('/images/homepage.jpg');
+    background: #efefef;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,21 +15,64 @@ section.main button {
     margin: 0 5px;
 }
 
-
-section.task {
-    display: flex;
-    align-items:center;
-
-    background-image: url('/images/homepage.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    padding: 4rem 0;
+section.main .btn-default {
+    font-weight: normal;
+    font-size: 1.3rem;
+    color: #353535;
+    border: 2px solid #4A3FB0 !important;
+    border-radius: 3px;
 }
 
-.homepage .app-name {
+section.main .panel-default {
+    border: 1px solid white !important;
+}
+
+section.main #new-task {
+    border: 0 !important;
+    padding: 10px;
+}
+
+section.main .todo-list, section.main .package-list {
+    margin-top: -50px;
+}
+
+section.main ul li:first-child {
+    border: 0;
+}
+
+section.main ul li:not(:first-child) {
+    border: 0;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+section.main ul li{
+    color: #4A3FB0;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+section.main .github-button {
+    border: 0;
+    border-radius: 3px;
+    padding: 15px 25px;
+    font-weight: bold;
+    font-size: 1.6rem;
+    background: black;
     color: white;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+
+.navbar-custom {
+    margin: 0px;
+    border-radius:0px;
+}
+.homepage .app-name {
+    padding: 10px 0 20px 0;
+    color: #4A3FB0;
     font-size: 6rem;
 }
 
