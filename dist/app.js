@@ -104,7 +104,7 @@ eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __we
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /home/hov-dev/srv/nodeproject/dist/index.js */\"./dist/index.js\");\n\n\n//# sourceURL=webpack:///multi_./dist/index.js?");
+eval("module.exports = __webpack_require__(/*! /home/hov-dev/srv/rex/dist/index.js */\"./dist/index.js\");\n\n\n//# sourceURL=webpack:///multi_./dist/index.js?");
 
 /***/ }),
 

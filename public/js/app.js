@@ -1060,7 +1060,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /home/hov-dev/srv/nodeproject/public/js/index.js */\"./public/js/index.js\");\n\n\n//# sourceURL=webpack:///multi_./public/js/index.js?");
+eval("module.exports = __webpack_require__(/*! /home/hov-dev/srv/rex/public/js/index.js */\"./public/js/index.js\");\n\n\n//# sourceURL=webpack:///multi_./public/js/index.js?");
 
 /***/ })
 
