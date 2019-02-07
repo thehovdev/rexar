@@ -3,17 +3,17 @@ import update from 'react-addons-update';
 let initialState = [
     {
         id : 0,
-        name : 'Отрефакторить код',
+        name : 'Complete code',
         edit : false,
     },
     {
         id : 1,
-        name : 'Исправить баги',
+        name : 'Fix bugs',
         edit : false,
     },
     {
         id : 2,
-        name : 'Ответить на почту',
+        name : 'Reply to mail',
         edit : false,
     },
 ]
