@@ -41,6 +41,6 @@
 <p><b>config/default.json</b> - main config file</p>
 <hr>
 <h3>Run project</h3>
-<p<b>npm install</b></p>
+<p><b>npm install</b></p>
 <p><b>npm run watch</b></p>
 <i>start code and make something amathing</i>
