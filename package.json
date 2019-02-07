@@ -1,15 +1,15 @@
 {
-  "name": "nodeproject",
+  "name": "rex",
   "version": "1.0.0",
   "description": "REX application",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "watch": "npm-run-all --parallel watch:client watch:server",
     "watch:client": "webpack --watch",
     "watch:server": "npx nodemon ./dist/app.js"
   },
   "author": "Afgan Khalilov",
-  "license": "ISC",
+  "license": "GPLv2",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "babel-core": "^6.26.3",
