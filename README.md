@@ -1,13 +1,13 @@
 ![logo](https://raw.githubusercontent.com/thehovdev/rex/master/public/images/github-logo.png)
 
-<h3>Rex is all in one javascript framework, with configured and included</h3>
+<h3>Rex is all in one javascript framework, with configured and included </h3>
 
 <ul>
     <li>React</li>
     <li>React Router</li>
     <li>Redux</li>
     <li>Webpack</li>
-    <li>NodeJs</li>
+    <li>NodeJs [dependency]</li>
     <li>Express</li>
     <li>EJS template engine</li>
     <li>Node-config configuration package</li>
