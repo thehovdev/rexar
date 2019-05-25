@@ -97,6 +97,17 @@ eval("exports.index = function(req, res) {\n    res.render('index');\n};\n\n//# 
 
 /***/ }),
 
+/***/ "./dist/controllers/teamController.js":
+/*!********************************************!*\
+  !*** ./dist/controllers/teamController.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("exports.index = function(req, res) {\n    res.send('Team index');\n}\n\nexports.add = function(req, res) {\n    res.send('Team add');\n}\n\nexports.update = function(req, res) {\n    res.send('Team update');\n}\n\nexports.delete = function(req, res) {\n    res.send('Team delete');\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
+
+/***/ }),
+
 /***/ "./dist/index.js":
 /*!***********************!*\
   !*** ./dist/index.js ***!
@@ -104,7 +115,7 @@ eval("exports.index = function(req, res) {\n    res.render('index');\n};\n\n//# 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar router = express.Router();\nvar app = express();\n\n// устанавливаем шаблонизатор ejs\napp.set('view engine', 'ejs');\n\n// устанавливаем папки для отслеживания файлов через express \napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// для body parser чтобы принимать post запросы\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n\n// start : routes \nvar routes = __webpack_require__(/*! ./routes */ \"./dist/routes/index.js\")\n// end : routers\n\n// write all routes handlers by url path\n// watch in routes/index.js\napp.get('/', routes.home.index);\n\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\nvar app = express();\n\n// set template engine ejs\napp.set('view engine', 'ejs');\n\n// set template folders for ejs engine\napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// for bodyParser to get requests\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\n\n// start : routes\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n// end : routes\n\n\n// start listening app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
@@ -115,18 +126,18 @@ eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __we
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// require controller for handle\nvar homeController = __webpack_require__(/*! ../controllers/homeController */ \"./dist/controllers/homeController.js\");\n\n\n/*  \n* place here routes according to current page as\n*   index : homeController.index,\n*   sendMail : homeController.sendMail,\n* and etc\n*/\n\n// start : home routes\nmodule.exports = {\n    // routes.home.index in /dist/index.js  \n    // will handle by homeController.index method \n    index : homeController.index\n}\n// end : home routes\n\n\n//# sourceURL=webpack:///./dist/routes/home.js?");
+eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\n\n// controller that is specific to this router\nvar homeController = __webpack_require__(/*! ../controllers/homeController */ \"./dist/controllers/homeController.js\");\n\n// middleware that is specific to this router\nrouter.use(function timeLog(req, res, next) {\n    console.log('Time: ', Date.now());\n    next();\n});\n\n// define the home page route\nrouter.get('/', homeController.index)\n\n\nmodule.exports = router\n\n//# sourceURL=webpack:///./dist/routes/home.js?");
 
 /***/ }),
 
-/***/ "./dist/routes/index.js":
-/*!******************************!*\
-  !*** ./dist/routes/index.js ***!
-  \******************************/
+/***/ "./dist/routes/team.js":
+/*!*****************************!*\
+  !*** ./dist/routes/team.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/*\n* place here all routes according to page as\n*   home : require('./home.js)\n*   team : require('./team.js)\n*   about: require('./about.js) \n* and etc \n*/\n\n// start : global routes\nvar routes = {\n    // require all home routes\n    home : __webpack_require__(/*! ./home.js */ \"./dist/routes/home.js\")\n\n    // or you can specify routes without require\n    // like this, as you want\n\n    // home : {\n    //    index : homeController.index,\n    //    sendMail : homeController.sendMail    \n    // }\n}\n// end : global routes\n\n\nmodule.exports = routes\n\n//# sourceURL=webpack:///./dist/routes/index.js?");
+eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\n\n// controller that is specific to this router\nvar teamController = __webpack_require__(/*! ../controllers/teamController */ \"./dist/controllers/teamController.js\");\n\n// middleware that is specific to this router\nrouter.use(function timeLog(req, res, next) {\n    console.log('Time: ', Date.now());\n    next();\n});\n\n// define the home page of team\nrouter.get('/', function(req, res) {\n    res.send('Team Home');\n});\n\n// define the add team\nrouter.get('/add', function(req, res) {\n    res.send('Team Add');\n});\n  \n// define the update team\nrouter.get('/update', function(req, res) {\n    res.send('Team Update');\n});\n\n// define the delete team\nrouter.get('/delete', function(req, res) {\n    res.send('Team Delete');\n});\n\nmodule.exports = router;\n\n//# sourceURL=webpack:///./dist/routes/team.js?");
 
 /***/ }),
 

@@ -1,18 +1,17 @@
-// require controller for handle
+var express = require('express');
+var router = express.Router();
+
+// controller that is specific to this router
 var homeController = require('../controllers/homeController');
 
+// middleware that is specific to this router
+router.use(function timeLog(req, res, next) {
+    console.log('Time: ', Date.now());
+    next();
+});
 
-/*  
-* place here routes according to current page as
-*   index : homeController.index,
-*   sendMail : homeController.sendMail,
-* and etc
-*/
+// define the home page route
+router.get('/', homeController.index)
 
-// start : home routes
-module.exports = {
-    // routes.home.index in /dist/index.js  
-    // will handle by homeController.index method 
-    index : homeController.index
-}
-// end : home routes
+
+module.exports = router
