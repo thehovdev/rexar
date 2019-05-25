@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./dist/controllers/homeController.js":
+/*!********************************************!*\
+  !*** ./dist/controllers/homeController.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("exports.index = function(req, res) {\n    res.render('index');\n};\n\n//# sourceURL=webpack:///./dist/controllers/homeController.js?");
+
+/***/ }),
+
 /***/ "./dist/index.js":
 /*!***********************!*\
   !*** ./dist/index.js ***!
@@ -93,7 +104,29 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar app = express();\n\n// устанавливаем шаблонизатор ejs\napp.set('view engine', 'ejs');\n\n// устанавливаем папки для отслеживания файлов через express \napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// для body parser чтобы принимать post запросы\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n// логика\napp.get('/', function (req, res) {   \n    res.render('index');\n});\n\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar router = express.Router();\nvar app = express();\n\n// устанавливаем шаблонизатор ejs\napp.set('view engine', 'ejs');\n\n// устанавливаем папки для отслеживания файлов через express \napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// для body parser чтобы принимать post запросы\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n\n// start : routes \nvar routes = __webpack_require__(/*! ./routes */ \"./dist/routes/index.js\")\n// end : routers\n\n// write all routes handlers by url path\n// watch in routes/index.js\napp.get('/', routes.home.index);\n\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
+
+/***/ }),
+
+/***/ "./dist/routes/home.js":
+/*!*****************************!*\
+  !*** ./dist/routes/home.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// require controller for handle\nvar homeController = __webpack_require__(/*! ../controllers/homeController */ \"./dist/controllers/homeController.js\");\n\n\n/*  \n* place here routes according to current page as\n*   index : homeController.index,\n*   sendMail : homeController.sendMail,\n* and etc\n*/\n\n// start : home routes\nmodule.exports = {\n    // routes.home.index in /dist/index.js  \n    // will handle by homeController.index method \n    index : homeController.index\n}\n// end : home routes\n\n\n//# sourceURL=webpack:///./dist/routes/home.js?");
+
+/***/ }),
+
+/***/ "./dist/routes/index.js":
+/*!******************************!*\
+  !*** ./dist/routes/index.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("/*\n* place here all routes according to page as\n*   home : require('./home.js)\n*   team : require('./team.js)\n*   about: require('./about.js) \n* and etc \n*/\n\n// start : global routes\nvar routes = {\n    // require all home routes\n    home : __webpack_require__(/*! ./home.js */ \"./dist/routes/home.js\")\n\n    // or you can specify routes without require\n    // like this, as you want\n\n    // home : {\n    //    index : homeController.index,\n    //    sendMail : homeController.sendMail    \n    // }\n}\n// end : global routes\n\n\nmodule.exports = routes\n\n//# sourceURL=webpack:///./dist/routes/index.js?");
 
 /***/ }),
 
