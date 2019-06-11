@@ -43,5 +43,5 @@ let content = fs.readFileSync(template, 'utf8');
 
 fs.appendFile(filename, content, function (err) {
     if (err) throw err;
-    console.log(item + 'created successfully');
+    console.log(item + ' created successfully');
 });
