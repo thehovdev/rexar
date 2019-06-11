@@ -37,6 +37,12 @@
 <p><b>views</b> - application views (ejs templates)</p>
 <h4>Back-end</h4>
 <p><b>dist/index.js</b> - entry node.js file</p>
+<p><b>dist/routes</b> - list of all routes</p>
+<p><b>dist/controllers</b> - list of all controllers</p>
+<p><b>dist/models</b> - list of all models</p>
+<p><b>dist/database/connect</b> - connect to mongodb with mongoose</p>
+<p><b>dist/includes/app</b> - app settings</p>
+
 <h4>Config file</h4>
 <p><b>config/default.json</b> - main config file</p>
 <hr>
