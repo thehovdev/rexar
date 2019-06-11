@@ -137,7 +137,7 @@ eval("// dont edit this file if its not needed\n\nvar express = __webpack_requir
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n\n// listeting port 3000 for serve app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n\n// listeting port 3000 for serve app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
