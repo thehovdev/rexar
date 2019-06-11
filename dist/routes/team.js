@@ -11,23 +11,15 @@ router.use(function timeLog(req, res, next) {
 });
 
 // define the home page of team
-router.get('/', function(req, res) {
-    res.send('Team Home');
-});
+router.get('/', teamController.index);
 
 // define the add team
-router.get('/add', function(req, res) {
-    res.send('Team Add');
-});
+router.get('/add', teamController.add);
   
 // define the update team
-router.get('/update', function(req, res) {
-    res.send('Team Update');
-});
+router.get('/update', teamController.update);
 
 // define the delete team
-router.get('/delete', function(req, res) {
-    res.send('Team Delete');
-});
+router.get('/delete', teamController.delete);
 
 module.exports = router;

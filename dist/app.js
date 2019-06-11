@@ -102,9 +102,31 @@ eval("exports.index = function(req, res) {\n    res.render('index');\n};\n\n//# 
   !*** ./dist/controllers/teamController.js ***!
   \********************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("exports.index = function(req, res) {\n    res.send('Team index');\n}\n\nexports.add = function(req, res) {\n    res.send('Team add');\n}\n\nexports.update = function(req, res) {\n    res.send('Team update');\n}\n\nexports.delete = function(req, res) {\n    res.send('Team delete');\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
+eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.js\");\n\nexports.index = function(req, res) {\n    res.send('Team index');\n}\n\nexports.add = function(req, res) {\n\n    var new_team = new team({\n        user: 'Admin',\n        action: 'insert data2'\n    });\n    \n    console.log(new_team);\n    new_team.save(function(err){\n      if(err) console.log(err); \n    });\n\n\n    res.send('Team add');\n}\n\nexports.update = function(req, res) {\n    res.send('Team update');\n}\n\nexports.delete = function(req, res) {\n    res.send('Team delete');\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
+
+/***/ }),
+
+/***/ "./dist/database/connect.js":
+/*!**********************************!*\
+  !*** ./dist/database/connect.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar mongoDB = 'mongodb://127.0.0.1/rex';\n\nmongoose.connect(mongoDB, { useNewUrlParser: true });\n// Позволим Mongoose использовать глобальную библиотеку промисов\nmongoose.Promise = global.Promise;\n\n// Получение подключения по умолчанию \nvar db = mongoose.connection;\n// Привязать подключение к событию ошибки  (получать сообщения об ошибках подключения)\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\ndb.on('connected', function() {\n    console.log('connected to MongoDB');\n});\n\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect.js?");
+
+/***/ }),
+
+/***/ "./dist/includes/app.js":
+/*!******************************!*\
+  !*** ./dist/includes/app.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// dont edit this file if its not needed\n\nvar express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\nvar app = express();\n\n// mongoose for database\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar db = __webpack_require__(/*! ../database/connect */ \"./dist/database/connect.js\");\n\n// set template engine ejs\napp.set('view engine', 'ejs');\n\n// set template folders for ejs engine\napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// for bodyParser to get requests\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\nmodule.exports = app;\n\n//# sourceURL=webpack:///./dist/includes/app.js?");
 
 /***/ }),
 
@@ -115,7 +137,18 @@ eval("exports.index = function(req, res) {\n    res.send('Team index');\n}\n\nex
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var path = __webpack_require__(/*! path */ \"path\");\nvar template = __webpack_require__(/*! ejs */ \"ejs\");\nvar bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\nvar express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\nvar app = express();\n\n// set template engine ejs\napp.set('view engine', 'ejs');\n\n// set template folders for ejs engine\napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// for bodyParser to get requests\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\n\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\n\n// start : routes\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n// end : routes\n\n\n// start listening app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n\n// listeting port 3000 for serve app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n//# sourceURL=webpack:///./dist/index.js?");
+
+/***/ }),
+
+/***/ "./dist/models/team.js":
+/*!*****************************!*\
+  !*** ./dist/models/team.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar Schema = mongoose.Schema;\n\nvar teamSchema = new Schema({\n    __id: String,\n    user: String, \n    action: String\n});\n\n// compile model from schema\n// var SomeModel = mongoose.model('SomeModel', SomeModelSchema );\n// module.exports = mongoose.model('teams', teamSchema, 'team');\nmodule.exports = mongoose.model('team', teamSchema);\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
 
 /***/ }),
 
@@ -137,7 +170,7 @@ eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\n\n// controller that is specific to this router\nvar teamController = __webpack_require__(/*! ../controllers/teamController */ \"./dist/controllers/teamController.js\");\n\n// middleware that is specific to this router\nrouter.use(function timeLog(req, res, next) {\n    console.log('Time: ', Date.now());\n    next();\n});\n\n// define the home page of team\nrouter.get('/', function(req, res) {\n    res.send('Team Home');\n});\n\n// define the add team\nrouter.get('/add', function(req, res) {\n    res.send('Team Add');\n});\n  \n// define the update team\nrouter.get('/update', function(req, res) {\n    res.send('Team Update');\n});\n\n// define the delete team\nrouter.get('/delete', function(req, res) {\n    res.send('Team Delete');\n});\n\nmodule.exports = router;\n\n//# sourceURL=webpack:///./dist/routes/team.js?");
+eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\n\n// controller that is specific to this router\nvar teamController = __webpack_require__(/*! ../controllers/teamController */ \"./dist/controllers/teamController.js\");\n\n// middleware that is specific to this router\nrouter.use(function timeLog(req, res, next) {\n    console.log('Time: ', Date.now());\n    next();\n});\n\n// define the home page of team\nrouter.get('/', teamController.index);\n\n// define the add team\nrouter.get('/add', teamController.add);\n  \n// define the update team\nrouter.get('/update', teamController.update);\n\n// define the delete team\nrouter.get('/delete', teamController.delete);\n\nmodule.exports = router;\n\n//# sourceURL=webpack:///./dist/routes/team.js?");
 
 /***/ }),
 
@@ -152,28 +185,6 @@ eval("module.exports = __webpack_require__(/*! /home/hov-dev/srv/rex/dist/index.
 
 /***/ }),
 
-/***/ "body-parser":
-/*!******************************!*\
-  !*** external "body-parser" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"body-parser\");\n\n//# sourceURL=webpack:///external_%22body-parser%22?");
-
-/***/ }),
-
-/***/ "ejs":
-/*!**********************!*\
-  !*** external "ejs" ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"ejs\");\n\n//# sourceURL=webpack:///external_%22ejs%22?");
-
-/***/ }),
-
 /***/ "express":
 /*!**************************!*\
   !*** external "express" ***!
@@ -185,14 +196,14 @@ eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///externa
 
 /***/ }),
 
-/***/ "path":
-/*!***********************!*\
-  !*** external "path" ***!
-  \***********************/
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+eval("module.exports = require(\"mongoose\");\n\n//# sourceURL=webpack:///external_%22mongoose%22?");
 
 /***/ })
 
