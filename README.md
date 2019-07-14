@@ -26,6 +26,8 @@
 <p>node rexar make:controller authController</p>
 <h5>Create new express route</h5>
 <p>node rexar make:route auth</p>
+<h5>Create new express model</h5>
+<p>node rexar make:model user</p>
 <hr>
 <h3>Project Structure</h3>
 <h4>Front-end</h4>
