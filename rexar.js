@@ -5,32 +5,46 @@ let name = process.argv[3];
 switch (arg) {
     case 'make:action':
         var item = 'action';
-
         var filedir = './public/js/actions/';
         var filename = filedir + name + '.js';
         var template = './vendor/templates/action/action.txt';
         break;
     case 'make:component':
         var item = 'component';
-
         var filedir = './public/js/components/';
         var filename = filedir + name + '.js';
         var template = './vendor/templates/component/component.txt';
         break;
     case 'make:container':
         var item = 'container';
-
         var filedir = './public/js/containers/';
         var filename = filedir + name + '.js';
         var template = './vendor/templates/container/container.txt';
         break;      
     case 'make:reducer':
         var item = 'reducer';
-
         var filedir = './public/js/reducers/';
         var filename = filedir + name + '.js';
         var template = './vendor/templates/reducer/reducer.txt';
-        break;            
+        break;  
+    case 'make:route':
+        var item = 'route';
+        var filedir = './dist/routes/';
+        var filename = filedir + name + '.js';
+        var template = './vendor/templates/route/route.txt';
+        break;       
+    case 'make:controller':
+        var item = 'controller';
+        var filedir = './dist/controllers/';
+        var filename = filedir + name + '.js';
+        var template = './vendor/templates/controller/controller.txt';
+        break;
+    case 'make:model':
+        var item = 'model';
+        var filedir = './dist/models/';
+        var filename = filedir + name + '.js';
+        var template = './vendor/templates/model/model.txt';
+        break;                         
     default:
         console.log('incorrect syntax');
         return false;

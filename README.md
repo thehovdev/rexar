@@ -15,13 +15,17 @@
 <hr>
 <h3>Rexar cli</h3>
 <h5>Create new react component</h5>
-<p>node rexar.js make:component mycomponent</p>
+<p>node rexar make:component mycomponent</p>
 <h5>Create new redux action</h5>
-<p>node rexar.js make:action myaction</p>
+<p>node rexar make:action myaction</p>
 <h5>Create new redux container</h5>
-<p>node rexar.js make:container mycontainer</p>
+<p>node rexar make:container mycontainer</p>
 <h5>Create new redux reducer</h5>
-<p>node rexar.js make:reducer myreducer</p>
+<p>node rexar make:reducer myreducer</p>
+<h5>Create new express controller</h5>
+<p>node rexar make:controller authController</p>
+<h5>Create new express route</h5>
+<p>node rexar make:route auth</p>
 <hr>
 <h3>Project Structure</h3>
 <h4>Front-end</h4>
@@ -49,4 +53,4 @@
 <h3>Run project</h3>
 <p><b>npm install</b></p>
 <p><b>npm run watch</b></p>
-<i>start code and make something amathing</i>
+<i>start code and make something amazing</i>

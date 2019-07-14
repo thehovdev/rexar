@@ -14,6 +14,8 @@ var app = require('./includes/app');
 app.get('/', require('./routes/home.js'));
 app.use('/team', require('./routes/team.js'));
 
+
+
 // listeting port 3000 for serve app
 app.listen(3000, function () {
     console.log('REX app listening on port 3000!');

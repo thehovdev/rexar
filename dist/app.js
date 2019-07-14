@@ -115,7 +115,7 @@ eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar mongoDB = 'mongodb://127.0.0.1/rex';\n\nmongoose.connect(mongoDB, { useNewUrlParser: true });\n// Позволим Mongoose использовать глобальную библиотеку промисов\nmongoose.Promise = global.Promise;\n\n// Получение подключения по умолчанию \nvar db = mongoose.connection;\n// Привязать подключение к событию ошибки  (получать сообщения об ошибках подключения)\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\ndb.on('connected', function() {\n    console.log('connected to MongoDB');\n});\n\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect.js?");
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar mongoDB = 'mongodb://127.0.0.1/rex';\n\nmongoose.connect(mongoDB, { useNewUrlParser: true });\n// make mongoose use global library of promises\nmongoose.Promise = global.Promise;\n\n// get information about connection\nvar db = mongoose.connection;\n// if connection error, show message or show success\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\ndb.on('connected', function() {\n    console.log('connected to MongoDB');\n});\n\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect.js?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("// dont edit this file if its not needed\n\nvar express = __webpack_requir
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n\n// listeting port 3000 for serve app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n\n\n\n// listeting port 3000 for serve app\napp.listen(3000, function () {\n    console.log('REX app listening on port 3000!');\n});\n\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar Schema = mongoose.Schema;\n\nvar teamSchema = new Schema({\n    __id: String,\n    user: String, \n    action: String\n});\n\n// compile model from schema\n// var SomeModel = mongoose.model('SomeModel', SomeModelSchema );\n// module.exports = mongoose.model('teams', teamSchema, 'team');\nmodule.exports = mongoose.model('team', teamSchema);\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar Schema = mongoose.Schema;\n\nvar teamSchema = new Schema({\n    __id: String,\n    user: String, \n    action: String\n});\n\n// compile model from schema\nmodule.exports = mongoose.model('team', teamSchema);\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
 
 /***/ }),
 

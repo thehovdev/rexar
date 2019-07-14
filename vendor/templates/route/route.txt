@@ -1,0 +1,25 @@
+var express = require('express');
+var router = express.Router();
+
+// controller that is specific to this router
+var someController = require('../controllers/someController');
+
+// middleware that is specific to this router
+router.use(function timeLog(req, res, next) {
+    console.log('Time: ', Date.now());
+    next();
+});
+
+// define the home page of team
+router.get('/', someController.index);
+
+// define the add team
+router.get('/add', someController.add);
+  
+// define the update team
+router.get('/update', someController.update);
+
+// define the delete team
+router.get('/delete', someController.delete);
+
+module.exports = router;
