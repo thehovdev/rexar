@@ -2,60 +2,41 @@ let fs = require('fs');
 let arg = process.argv[2];
 let name = process.argv[3];
 
-switch (arg) {
-    case 'make:action':
-        var item = 'action';
-        var filedir = './public/js/actions/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/action/action.txt';
-        break;
-    case 'make:component':
-        var item = 'component';
-        var filedir = './public/js/components/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/component/component.txt';
-        break;
-    case 'make:container':
-        var item = 'container';
-        var filedir = './public/js/containers/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/container/container.txt';
-        break;      
-    case 'make:reducer':
-        var item = 'reducer';
-        var filedir = './public/js/reducers/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/reducer/reducer.txt';
-        break;  
-    case 'make:route':
-        var item = 'route';
-        var filedir = './dist/routes/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/route/route.txt';
-        break;       
-    case 'make:controller':
-        var item = 'controller';
-        var filedir = './dist/controllers/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/controller/controller.txt';
-        break;
-    case 'make:model':
-        var item = 'model';
-        var filedir = './dist/models/';
-        var filename = filedir + name + '.js';
-        var template = './vendor/templates/model/model.txt';
-        break;                         
-    default:
-        console.log('incorrect syntax');
-        return false;
-        break;
+let commands = [];
+commands['dist'] = [
+    'route',
+    'controller',
+    'model'
+]
+commands['public/js'] = [
+    'action',
+    'component',
+    'container',
+    'reducer'
+]
+
+if(arg.includes('make:')) {
+    let item = arg.split('make:')[1].trim();
+    for (var dir in commands) {
+        if(commands[dir].includes(item)) {
+            var filedir = `./${dir}/${item}s`;
+            var filename = `${filedir}/${name}.js`;
+            var template = `./vendor/templates/${item}/${item}.txt`;
+        
+            // create new file
+            let content = fs.readFileSync(template, 'utf8');
+            fs.appendFile(filename, content, function (err) {
+                if (err) throw err;
+                console.log(item + ' created successfully');
+            });  
+
+            return true;
+        }      
+    }
+} else {
+    console.log('incorrect syntax');
+    return false;
 }
 
 
 
-let content = fs.readFileSync(template, 'utf8');
-
-fs.appendFile(filename, content, function (err) {
-    if (err) throw err;
-    console.log(item + ' created successfully');
-});
