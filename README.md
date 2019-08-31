@@ -7,6 +7,7 @@
     <li>Redux</li>
     <li>Webpack (Client / Server)</li>
     <li>NodeJs [dependency]</li>
+    <li>MongoDB [dependency]</li>
     <li>Mongoose</li>
     <li>Express</li>
     <li>EJS template engine</li>
