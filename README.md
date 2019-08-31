@@ -1,12 +1,13 @@
-![logo](https://raw.githubusercontent.com/thehovdev/rex/master/public/images/github-logo.png)
+![logo](https://raw.githubusercontent.com/thehovdev/rexar/master/public/images/github-logo.png)
 
-<h3>Rex is all in one javascript framework, with configured and included </h3>
+<h3>Rexar is all in one javascript framework, with configured and included </h3>
 <ul>
     <li>React</li>
     <li>React Router</li>
     <li>Redux</li>
-    <li>Webpack</li>
+    <li>Webpack (Client / Server)</li>
     <li>NodeJs [dependency]</li>
+    <li>Mongoose</li>
     <li>Express</li>
     <li>EJS template engine</li>
     <li>Node-config configuration package</li>

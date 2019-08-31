@@ -1,7 +1,7 @@
 {
-  "name": "rex",
+  "name": "rexar",
   "version": "1.0.0",
-  "description": "REX application",
+  "description": "Rexar application",
   "main": "./dist/index.js",
   "scripts": {
     "watch": "npm-run-all --parallel watch:client watch:server",

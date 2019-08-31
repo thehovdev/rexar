@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/rex';
+var mongoDB = 'mongodb://127.0.0.1/rexar';
 
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 // make mongoose use global library of promises

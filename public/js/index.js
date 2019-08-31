@@ -14,7 +14,7 @@ import {Provider} from 'react-redux';
 import allReducers from './reducers';
 import {combineReducers} from 'redux';
 
-// file for import all components and define all app routes
+// file for import all components and define all app (react component) routes
 import router from "./routes/router";
 
 // create browser history (react router)
