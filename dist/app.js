@@ -137,7 +137,7 @@ eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar m
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const config = __webpack_require__(/*! config */ \"config\");\r\nconst Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\n\r\n// Option 1: Passing parameters separately\r\nconst sequelize = new Sequelize('postgres', 'postgres', 'postgres', {\r\n  host: 'localhost',\r\n   /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */\r\n  dialect: config.get('database.driver')\r\n});\r\n\r\nsequelize\r\n  .authenticate()\r\n  .then(() => {\r\n    console.log('Sql Connection has been established successfully.');\r\n  })\r\n  .catch(err => {\r\n    console.error('Unable to connect to the Sql database:', err);\r\n  });\r\n\r\nmodule.exports = sequelize;\n\n//# sourceURL=webpack:///./dist/database/connect/postgres.js?");
+eval("const config = __webpack_require__(/*! config */ \"config\");\r\nconst Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\n\r\n// Option 1: Passing parameters separately\r\nconst sequelize = new Sequelize('postgres', 'postgres', 'postgres', {\r\n  host: 'localhost',\r\n   /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */\r\n  dialect: config.get('database.driver')\r\n});\r\n\r\nsequelize\r\n  .authenticate()\r\n  .then(() => {\r\n    console.log('Sql Connection has been established successfully.');\r\n  })\r\n  .catch(err => {\r\n    console.error('Unable to connect to the Sql database:', err);\r\n  });\r\n  \r\n\r\nmodule.exports = sequelize;\n\n//# sourceURL=webpack:///./dist/database/connect/postgres.js?");
 
 /***/ }),
 
