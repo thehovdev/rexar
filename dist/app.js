@@ -104,18 +104,40 @@ eval("exports.index = function(req, res) {\r\n    res.render('index');\r\n};\n\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.js\");\r\n\r\nexports.index = function(req, res) {\r\n    res.send('Team index');\r\n}\r\n\r\nexports.add = function(req, res) {\r\n\r\n    var new_team = new team({\r\n        user: 'Admin',\r\n        action: 'insert data2'\r\n    });\r\n    \r\n    console.log(new_team);\r\n    new_team.save(function(err){\r\n      if(err) console.log(err); \r\n    });\r\n\r\n\r\n    res.send('Team add');\r\n}\r\n\r\nexports.add_sql = function(req, res) {\r\n\r\n    // var new_team = new team({\r\n    //     user: 'Admin',\r\n    //     action: 'insert data2'\r\n    // });\r\n    \r\n    // console.log(new_team);\r\n    // new_team.save(function(err){\r\n    //   if(err) console.log(err); \r\n    // });\r\n\r\n\r\n    res.send('Team add');\r\n}\r\n\r\n\r\nexports.update = function(req, res) {\r\n    res.send('Team update');\r\n}\r\n\r\nexports.delete = function(req, res) {\r\n    res.send('Team delete');\r\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
+eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.js\");\r\n\r\nexports.index = function(req, res) {\r\n    res.send('Team index');\r\n}\r\n\r\nexports.add = function(req, res) {\r\n\r\n    var new_team = new team({\r\n        user: 'Admin',\r\n        action: 'insert data2'\r\n    });\r\n    \r\n    console.log(new_team);\r\n    new_team.save(function(err){\r\n      if(err) console.log(err); \r\n    });\r\n\r\n\r\n    res.send('Team add');\r\n}\r\n\r\nexports.add_sql = function(req, res) {\r\n    res.send('Team add');\r\n}\r\n\r\n\r\nexports.update = function(req, res) {\r\n    res.send('Team update');\r\n}\r\n\r\nexports.delete = function(req, res) {\r\n    res.send('Team delete');\r\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
 
 /***/ }),
 
-/***/ "./dist/database/connect.js":
-/*!**********************************!*\
-  !*** ./dist/database/connect.js ***!
-  \**********************************/
+/***/ "./dist/database/connect sync recursive ^\\.\\/.*$":
+/*!*********************************************!*\
+  !*** ./dist/database/connect sync ^\.\/.*$ ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar mongoDB = 'mongodb://127.0.0.1/rexar';\r\n\r\nmongoose.connect(mongoDB, { useNewUrlParser: true });\r\n// make mongoose use global library of promises\r\nmongoose.Promise = global.Promise;\r\n\r\n// get information about connection\r\nvar db = mongoose.connection;\r\n// if connection error, show message or show success\r\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\r\ndb.on('connected', function() {\r\n    console.log('connected to MongoDB');\r\n});\r\n\r\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect.js?");
+eval("var map = {\n\t\"./mongodb\": \"./dist/database/connect/mongodb.js\",\n\t\"./mongodb.js\": \"./dist/database/connect/mongodb.js\",\n\t\"./mysql\": \"./dist/database/connect/mysql.js\",\n\t\"./mysql.js\": \"./dist/database/connect/mysql.js\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tvar id = map[req];\n\tif(!(id + 1)) { // check for number or string\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn id;\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./dist/database/connect sync recursive ^\\\\.\\\\/.*$\";\n\n//# sourceURL=webpack:///./dist/database/connect_sync_^\\.\\/.*$?");
+
+/***/ }),
+
+/***/ "./dist/database/connect/mongodb.js":
+/*!******************************************!*\
+  !*** ./dist/database/connect/mongodb.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar mongoDB = 'mongodb://127.0.0.1/rexar';\r\n\r\nmongoose.connect(mongoDB, { useNewUrlParser: true });\r\n// make mongoose use global library of promises\r\nmongoose.Promise = global.Promise;\r\n\r\n// get information about connection\r\nvar db = mongoose.connection;\r\n// if connection error, show message or show success\r\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\r\ndb.on('connected', function() {\r\n    console.log('connected to MongoDB');\r\n});\r\n\r\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect/mongodb.js?");
+
+/***/ }),
+
+/***/ "./dist/database/connect/mysql.js":
+/*!****************************************!*\
+  !*** ./dist/database/connect/mysql.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const config = __webpack_require__(/*! config */ \"config\");\r\nconst Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\n\r\n// Option 1: Passing parameters separately\r\nconst sequelize = new Sequelize('database', 'username', 'password', {\r\n  host: 'localhost',\r\n   /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */\r\n  dialect: config.get('database.driver')\r\n});\r\n\r\nsequelize\r\n  .authenticate()\r\n  .then(() => {\r\n    console.log('Sql Connection has been established successfully.');\r\n  })\r\n  .catch(err => {\r\n    console.error('Unable to connect to the Sql database:', err);\r\n  });\r\n\r\nmodule.exports = sequelize;\n\n//# sourceURL=webpack:///./dist/database/connect/mysql.js?");
 
 /***/ }),
 
@@ -126,7 +148,7 @@ eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar m
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// dont edit this file if its not needed\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\nvar router = express.Router();\r\nvar app = express();\r\n\r\n// mongoose for database\r\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar db = __webpack_require__(/*! ../database/connect */ \"./dist/database/connect.js\");\r\n\r\n// set template engine ejs\r\napp.set('view engine', 'ejs');\r\n\r\n// set template folders for ejs engine\r\napp.use(express.static('includes'));\r\napp.use(express.static('public'));\r\n\r\n// for bodyParser to get requests\r\napp.use(express.json());       // to support JSON-encoded bodies\r\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\r\n\r\nmodule.exports = app;\n\n//# sourceURL=webpack:///./dist/includes/app.js?");
+eval("// dont edit this file if its not needed\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\nvar config = __webpack_require__(/*! config */ \"config\");\r\nvar router = express.Router();\r\nvar app = express();\r\n\r\n\r\n// mongoose for database\r\nconst mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nconst sequalize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\nvar db_driver = config.get('database.driver');\r\nvar db = __webpack_require__(\"./dist/database/connect sync recursive ^\\\\.\\\\/.*$\")(\"./\" + db_driver);\r\n\r\n// set template engine ejs\r\napp.set('view engine', 'ejs');\r\n\r\n// set template folders for ejs engine\r\napp.use(express.static('includes'));\r\napp.use(express.static('public'));\r\n\r\n// for bodyParser to get requests\r\napp.use(express.json());       // to support JSON-encoded bodies\r\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\r\n\r\nmodule.exports = app;\n\n//# sourceURL=webpack:///./dist/includes/app.js?");
 
 /***/ }),
 
@@ -148,7 +170,7 @@ eval("// require app settings \r\nvar app = __webpack_require__(/*! ./includes/a
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\nclass Project extends Model {}\r\nProject.init({\r\n  title: Sequelize.STRING,\r\n  description: Sequelize.TEXT\r\n}, { sequelize, modelName: 'project' });\r\n\r\n\r\n\r\n\r\n// var mongoose = require('mongoose');\r\n// var Schema = mongoose.Schema;\r\n\r\n// var teamSchema = new Schema({\r\n//     __id: String,\r\n//     user: String, \r\n//     action: String\r\n// });\r\n\r\n// // compile model from schema\r\n// module.exports = mongoose.model('team', teamSchema);\r\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar Schema = mongoose.Schema;\r\n\r\nvar teamSchema = new Schema({\r\n    __id: String,\r\n    user: String, \r\n    action: String\r\n});\r\n\r\n// compile model from schema\r\nmodule.exports = mongoose.model('team', teamSchema);\r\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
 
 /***/ }),
 

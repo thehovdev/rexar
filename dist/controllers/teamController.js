@@ -21,18 +21,6 @@ exports.add = function(req, res) {
 }
 
 exports.add_sql = function(req, res) {
-
-    // var new_team = new team({
-    //     user: 'Admin',
-    //     action: 'insert data2'
-    // });
-    
-    // console.log(new_team);
-    // new_team.save(function(err){
-    //   if(err) console.log(err); 
-    // });
-
-
     res.send('Team add');
 }
 

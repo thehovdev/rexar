@@ -1,11 +1,16 @@
 // dont edit this file if its not needed
 var express = require('express');
+var config = require('config');
 var router = express.Router();
 var app = express();
 
+
 // mongoose for database
-var mongoose = require('mongoose');
-var db = require('../database/connect');
+const mongoose = require('mongoose');
+const sequalize = require('sequelize');
+
+var db_driver = config.get('database.driver');
+var db = require('../database/connect/' + db_driver);
 
 // set template engine ejs
 app.set('view engine', 'ejs');
