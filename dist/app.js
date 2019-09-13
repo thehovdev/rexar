@@ -115,7 +115,7 @@ eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var map = {\n\t\"./mongodb\": \"./dist/database/connect/mongodb.js\",\n\t\"./mongodb.js\": \"./dist/database/connect/mongodb.js\",\n\t\"./mysql\": \"./dist/database/connect/mysql.js\",\n\t\"./mysql.js\": \"./dist/database/connect/mysql.js\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tvar id = map[req];\n\tif(!(id + 1)) { // check for number or string\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn id;\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./dist/database/connect sync recursive ^\\\\.\\\\/.*$\";\n\n//# sourceURL=webpack:///./dist/database/connect_sync_^\\.\\/.*$?");
+eval("var map = {\n\t\"./mongodb\": \"./dist/database/connect/mongodb.js\",\n\t\"./mongodb.js\": \"./dist/database/connect/mongodb.js\",\n\t\"./postgres\": \"./dist/database/connect/postgres.js\",\n\t\"./postgres.js\": \"./dist/database/connect/postgres.js\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tvar id = map[req];\n\tif(!(id + 1)) { // check for number or string\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn id;\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./dist/database/connect sync recursive ^\\\\.\\\\/.*$\";\n\n//# sourceURL=webpack:///./dist/database/connect_sync_^\\.\\/.*$?");
 
 /***/ }),
 
@@ -130,14 +130,14 @@ eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar m
 
 /***/ }),
 
-/***/ "./dist/database/connect/mysql.js":
-/*!****************************************!*\
-  !*** ./dist/database/connect/mysql.js ***!
-  \****************************************/
+/***/ "./dist/database/connect/postgres.js":
+/*!*******************************************!*\
+  !*** ./dist/database/connect/postgres.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const config = __webpack_require__(/*! config */ \"config\");\r\nconst Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\n\r\n// Option 1: Passing parameters separately\r\nconst sequelize = new Sequelize('database', 'username', 'password', {\r\n  host: 'localhost',\r\n   /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */\r\n  dialect: config.get('database.driver')\r\n});\r\n\r\nsequelize\r\n  .authenticate()\r\n  .then(() => {\r\n    console.log('Sql Connection has been established successfully.');\r\n  })\r\n  .catch(err => {\r\n    console.error('Unable to connect to the Sql database:', err);\r\n  });\r\n\r\nmodule.exports = sequelize;\n\n//# sourceURL=webpack:///./dist/database/connect/mysql.js?");
+eval("const config = __webpack_require__(/*! config */ \"config\");\r\nconst Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\n\r\n// Option 1: Passing parameters separately\r\nconst sequelize = new Sequelize('postgres', 'postgres', 'postgres', {\r\n  host: 'localhost',\r\n   /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */\r\n  dialect: config.get('database.driver')\r\n});\r\n\r\nsequelize\r\n  .authenticate()\r\n  .then(() => {\r\n    console.log('Sql Connection has been established successfully.');\r\n  })\r\n  .catch(err => {\r\n    console.error('Unable to connect to the Sql database:', err);\r\n  });\r\n\r\nmodule.exports = sequelize;\n\n//# sourceURL=webpack:///./dist/database/connect/postgres.js?");
 
 /***/ }),
 

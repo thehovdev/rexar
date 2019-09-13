@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('database', 'username', 'password', {
+const sequelize = new Sequelize('postgres', 'postgres', 'postgres', {
   host: 'localhost',
    /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
   dialect: config.get('database.driver')

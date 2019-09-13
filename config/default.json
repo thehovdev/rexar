@@ -5,7 +5,7 @@
     },
 
     "database": {
-        "driver": "mysql"
+        "driver": "postgres"
     },
 
     "webpack" : {
