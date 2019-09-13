@@ -1,11 +1,22 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var Sequelize = require('sequelize');
 
-var teamSchema = new Schema({
-    __id: String,
-    user: String, 
-    action: String
-});
+class Project extends Model {}
+Project.init({
+  title: Sequelize.STRING,
+  description: Sequelize.TEXT
+}, { sequelize, modelName: 'project' });
 
-// compile model from schema
-module.exports = mongoose.model('team', teamSchema);
+
+
+
+// var mongoose = require('mongoose');
+// var Schema = mongoose.Schema;
+
+// var teamSchema = new Schema({
+//     __id: String,
+//     user: String, 
+//     action: String
+// });
+
+// // compile model from schema
+// module.exports = mongoose.model('team', teamSchema);

@@ -4,6 +4,10 @@
         "minimize": false
     },
 
+    "database": {
+        "driver": "mongo"
+    },
+
     "webpack" : {
         "entry": "index.js",
         "bundle": "app.js",

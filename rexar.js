@@ -1,4 +1,7 @@
 let fs = require('fs');
+let config = require('config');
+
+
 let arg = process.argv[2];
 let name = process.argv[3];
 
@@ -21,7 +24,13 @@ if(arg.includes('make:')) {
         if(commands[dir].includes(item)) {
             var filedir = `./${dir}/${item}s`;
             var filename = `${filedir}/${name}.js`;
+
+
             var template = `./vendor/templates/${item}/${item}.txt`;
+            if(item == 'model') {
+                var prefix = config.get('database.driver');
+                var template = `./vendor/templates/${item}/${prefix}/${item}.txt`;
+            }
         
             // create new file
             let content = fs.readFileSync(template, 'utf8');

@@ -1,4 +1,5 @@
 var express = require('express');
+let config = require('config');
 var router = express.Router();
 
 // controller that is specific to this router
@@ -15,7 +16,10 @@ router.get('/', teamController.index);
 
 // define the add team
 router.get('/add', teamController.add);
-  
+
+// define the add team
+router.get('/add-sql', teamController.add_sql);
+
 // define the update team
 router.get('/update', teamController.update);
 

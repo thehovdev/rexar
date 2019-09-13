@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("exports.index = function(req, res) {\n    res.render('index');\n};\n\n//# sourceURL=webpack:///./dist/controllers/homeController.js?");
+eval("exports.index = function(req, res) {\r\n    res.render('index');\r\n};\n\n//# sourceURL=webpack:///./dist/controllers/homeController.js?");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("exports.index = function(req, res) {\n    res.render('index');\n};\n\n//# 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.js\");\n\nexports.index = function(req, res) {\n    res.send('Team index');\n}\n\nexports.add = function(req, res) {\n\n    var new_team = new team({\n        user: 'Admin',\n        action: 'insert data2'\n    });\n    \n    console.log(new_team);\n    new_team.save(function(err){\n      if(err) console.log(err); \n    });\n\n\n    res.send('Team add');\n}\n\nexports.update = function(req, res) {\n    res.send('Team update');\n}\n\nexports.delete = function(req, res) {\n    res.send('Team delete');\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
+eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.js\");\r\n\r\nexports.index = function(req, res) {\r\n    res.send('Team index');\r\n}\r\n\r\nexports.add = function(req, res) {\r\n\r\n    var new_team = new team({\r\n        user: 'Admin',\r\n        action: 'insert data2'\r\n    });\r\n    \r\n    console.log(new_team);\r\n    new_team.save(function(err){\r\n      if(err) console.log(err); \r\n    });\r\n\r\n\r\n    res.send('Team add');\r\n}\r\n\r\nexports.add_sql = function(req, res) {\r\n\r\n    // var new_team = new team({\r\n    //     user: 'Admin',\r\n    //     action: 'insert data2'\r\n    // });\r\n    \r\n    // console.log(new_team);\r\n    // new_team.save(function(err){\r\n    //   if(err) console.log(err); \r\n    // });\r\n\r\n\r\n    res.send('Team add');\r\n}\r\n\r\n\r\nexports.update = function(req, res) {\r\n    res.send('Team update');\r\n}\r\n\r\nexports.delete = function(req, res) {\r\n    res.send('Team delete');\r\n}\n\n//# sourceURL=webpack:///./dist/controllers/teamController.js?");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("var team = __webpack_require__(/*! ../models/team */ \"./dist/models/team.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar mongoDB = 'mongodb://127.0.0.1/rexar';\n\nmongoose.connect(mongoDB, { useNewUrlParser: true });\n// make mongoose use global library of promises\nmongoose.Promise = global.Promise;\n\n// get information about connection\nvar db = mongoose.connection;\n// if connection error, show message or show success\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\ndb.on('connected', function() {\n    console.log('connected to MongoDB');\n});\n\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect.js?");
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar mongoDB = 'mongodb://127.0.0.1/rexar';\r\n\r\nmongoose.connect(mongoDB, { useNewUrlParser: true });\r\n// make mongoose use global library of promises\r\nmongoose.Promise = global.Promise;\r\n\r\n// get information about connection\r\nvar db = mongoose.connection;\r\n// if connection error, show message or show success\r\ndb.on('error', console.error.bind(console, 'MongoDB connection error:'));\r\ndb.on('connected', function() {\r\n    console.log('connected to MongoDB');\r\n});\r\n\r\nmodule.exports = db\n\n//# sourceURL=webpack:///./dist/database/connect.js?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar mon
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// dont edit this file if its not needed\nvar express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\nvar app = express();\n\n// mongoose for database\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar db = __webpack_require__(/*! ../database/connect */ \"./dist/database/connect.js\");\n\n// set template engine ejs\napp.set('view engine', 'ejs');\n\n// set template folders for ejs engine\napp.use(express.static('includes'));\napp.use(express.static('public'));\n\n// for bodyParser to get requests\napp.use(express.json());       // to support JSON-encoded bodies\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\n\nmodule.exports = app;\n\n//# sourceURL=webpack:///./dist/includes/app.js?");
+eval("// dont edit this file if its not needed\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\nvar router = express.Router();\r\nvar app = express();\r\n\r\n// mongoose for database\r\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\r\nvar db = __webpack_require__(/*! ../database/connect */ \"./dist/database/connect.js\");\r\n\r\n// set template engine ejs\r\napp.set('view engine', 'ejs');\r\n\r\n// set template folders for ejs engine\r\napp.use(express.static('includes'));\r\napp.use(express.static('public'));\r\n\r\n// for bodyParser to get requests\r\napp.use(express.json());       // to support JSON-encoded bodies\r\napp.use(express.urlencoded({extended: true}));  // to support URL-encoded bodies\r\n\r\nmodule.exports = app;\n\n//# sourceURL=webpack:///./dist/includes/app.js?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("// dont edit this file if its not needed\nvar express = __webpack_require_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\n\n/*\n* place here all routes according to page like\n*   '/home', require('./home.js)\n*   '/team', require('./team.js)\n* and etc \n* routes methods will specify like this\n*   app.get / app.post for single page route \n*   app.use for multi page route as /team/add, /team/update \n* and etc\n*/\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\n\n\n\n// listeting port 3000 for serve app\napp.listen(3000, function () {\n    console.log('Rexar app listening on port 3000!');\n});\n\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("// require app settings \r\nvar app = __webpack_require__(/*! ./includes/app */ \"./dist/includes/app.js\");\r\n\r\n/*\r\n* place here all routes according to page like\r\n*   '/home', require('./home.js)\r\n*   '/team', require('./team.js)\r\n* and etc \r\n* routes methods will specify like this\r\n*   app.get / app.post for single page route \r\n*   app.use for multi page route as /team/add, /team/update \r\n* and etc\r\n*/\r\napp.get('/', __webpack_require__(/*! ./routes/home.js */ \"./dist/routes/home.js\"));\r\napp.use('/team', __webpack_require__(/*! ./routes/team.js */ \"./dist/routes/team.js\"));\r\n\r\n\r\n\r\n// listeting port 3000 for serve app\r\napp.listen(3000, function () {\r\n    console.log('Rexar app listening on port 3000!');\r\n});\r\n\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("// require app settings \nvar app = __webpack_require__(/*! ./includes/app
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar Schema = mongoose.Schema;\n\nvar teamSchema = new Schema({\n    __id: String,\n    user: String, \n    action: String\n});\n\n// compile model from schema\nmodule.exports = mongoose.model('team', teamSchema);\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
+eval("var Sequelize = __webpack_require__(/*! sequelize */ \"sequelize\");\r\n\r\nclass Project extends Model {}\r\nProject.init({\r\n  title: Sequelize.STRING,\r\n  description: Sequelize.TEXT\r\n}, { sequelize, modelName: 'project' });\r\n\r\n\r\n\r\n\r\n// var mongoose = require('mongoose');\r\n// var Schema = mongoose.Schema;\r\n\r\n// var teamSchema = new Schema({\r\n//     __id: String,\r\n//     user: String, \r\n//     action: String\r\n// });\r\n\r\n// // compile model from schema\r\n// module.exports = mongoose.model('team', teamSchema);\r\n\n\n//# sourceURL=webpack:///./dist/models/team.js?");
 
 /***/ }),
 
@@ -159,7 +159,7 @@ eval("var mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar Sch
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\n\n// controller that is specific to this router\nvar homeController = __webpack_require__(/*! ../controllers/homeController */ \"./dist/controllers/homeController.js\");\n\n// middleware that is specific to this router\nrouter.use(function timeLog(req, res, next) {\n    console.log('Time: ', Date.now());\n    next();\n});\n\n// define the home page route\nrouter.get('/', homeController.index)\n\n\nmodule.exports = router\n\n//# sourceURL=webpack:///./dist/routes/home.js?");
+eval("var express = __webpack_require__(/*! express */ \"express\");\r\nvar router = express.Router();\r\n\r\n// controller that is specific to this router\r\nvar homeController = __webpack_require__(/*! ../controllers/homeController */ \"./dist/controllers/homeController.js\");\r\n\r\n// middleware that is specific to this router\r\nrouter.use(function timeLog(req, res, next) {\r\n    console.log('Time: ', Date.now());\r\n    next();\r\n});\r\n\r\n// define the home page route\r\nrouter.get('/', homeController.index)\r\n\r\n\r\nmodule.exports = router\n\n//# sourceURL=webpack:///./dist/routes/home.js?");
 
 /***/ }),
 
@@ -170,7 +170,7 @@ eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router = express.Router();\n\n// controller that is specific to this router\nvar teamController = __webpack_require__(/*! ../controllers/teamController */ \"./dist/controllers/teamController.js\");\n\n// middleware that is specific to this router\nrouter.use(function timeLog(req, res, next) {\n    console.log('Time: ', Date.now());\n    next();\n});\n\n// define the home page of team\nrouter.get('/', teamController.index);\n\n// define the add team\nrouter.get('/add', teamController.add);\n  \n// define the update team\nrouter.get('/update', teamController.update);\n\n// define the delete team\nrouter.get('/delete', teamController.delete);\n\nmodule.exports = router;\n\n//# sourceURL=webpack:///./dist/routes/team.js?");
+eval("var express = __webpack_require__(/*! express */ \"express\");\r\nlet config = __webpack_require__(/*! config */ \"config\");\r\nvar router = express.Router();\r\n\r\n// controller that is specific to this router\r\nvar teamController = __webpack_require__(/*! ../controllers/teamController */ \"./dist/controllers/teamController.js\");\r\n\r\n// middleware that is specific to this router\r\nrouter.use(function timeLog(req, res, next) {\r\n    console.log('Time: ', Date.now());\r\n    next();\r\n});\r\n\r\n// define the home page of team\r\nrouter.get('/', teamController.index);\r\n\r\n// define the add team\r\nrouter.get('/add', teamController.add);\r\n\r\n// define the add team\r\nrouter.get('/add-sql', teamController.add_sql);\r\n\r\n// define the update team\r\nrouter.get('/update', teamController.update);\r\n\r\n// define the delete team\r\nrouter.get('/delete', teamController.delete);\r\n\r\nmodule.exports = router;\n\n//# sourceURL=webpack:///./dist/routes/team.js?");
 
 /***/ }),
 
@@ -181,7 +181,18 @@ eval("var express = __webpack_require__(/*! express */ \"express\");\nvar router
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /home/hov-dev/srv/rexar/dist/index.js */\"./dist/index.js\");\n\n\n//# sourceURL=webpack:///multi_./dist/index.js?");
+eval("module.exports = __webpack_require__(/*! C:\\Projects\\dist\\index.js */\"./dist/index.js\");\n\n\n//# sourceURL=webpack:///multi_./dist/index.js?");
+
+/***/ }),
+
+/***/ "config":
+/*!*************************!*\
+  !*** external "config" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"config\");\n\n//# sourceURL=webpack:///external_%22config%22?");
 
 /***/ }),
 
@@ -204,6 +215,17 @@ eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///externa
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"mongoose\");\n\n//# sourceURL=webpack:///external_%22mongoose%22?");
+
+/***/ }),
+
+/***/ "sequelize":
+/*!****************************!*\
+  !*** external "sequelize" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"sequelize\");\n\n//# sourceURL=webpack:///external_%22sequelize%22?");
 
 /***/ })
 
